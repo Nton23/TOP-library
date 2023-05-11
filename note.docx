@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TOP Library</title>
+</head>
+
+<body>
+    <!--Global Container-->
+    <main class="bg-green-100 flex justify-center min-h-screen p-10">
+        <!--Card Container-->
+        <div class="bg-white space-y-10 border border-gray-100 m-6 p-20 shadow-2xl rounded-lg w-full">
+            <!--Title Container-->
+            <div class="flex justify-center items-center border-2 border-red-200">
+                <h1 class="text-5xl"><span class="text-7xl font-bold">#</span>Welcome to TOP library</h1>
+            </div>
+            <!--Search and Add container-->
+            <div class="flex justify-between items-center border-2 border-red-200">
+                <!--Search input container-->
+                <div class="flex justify-between">
+                    <input type="text" class="border-none placeholder:font-thin focus:outline-none"
+                        placeholder="Search">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-gray-300 duration-200 hover:scale-110"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="10" cy="10" r="7" />
+                            <line x1="21" y1="21" x2="15" y2="15" />
+                        </svg>
+                    </button>
+                </div>
+                <!--Add button-->
+                <button
+                    class="py-2 px-10 text-lg font-normal text-white bg-black border border-black rounded-md shadow-2xl duration-200 hover:bg-green-100 hover:text-black">
+                    Add
+                </button>
+            </div>
+            <!--Books display container-->
+            <div class="bg-green-400 border-2 border-red-900 rounded-xl shadow-lg group flex justify-around">
+                <!--Book container-->
+                <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
+                    <!--Top Container-->
+                    <img src="images/chemistrysample1.jpeg" alt="book image" class="m-auto">
+                    <!--Bottom Container-->
+                    <div
+                        class="absolute bottom-0 right-0 left-0 border border-white h-1/4 py-2 bg-gray-300 hover:bg-gray-500">
+                        hello
+                    </div>
+                </div>
+                <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
+                    <!--Top Container-->
+                    <img src="images/chemistrysample1.jpeg" alt="book image" class="m-auto">
+                    <!--Bottom Container-->
+                    <div
+                        class="absolute bottom-0 right-0 left-0 border border-white h-1/4 py-2 bg-gray-300 hover:bg-gray-500">
+                        hello
+                    </div>
+                </div>
+                <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
+                    <!--Top Container-->
+                    <img src="images/chemistrysample1.jpeg" alt="book image" class="m-auto">
+                    <!--Bottom Container-->
+                    <div
+                        class="absolute bottom-0 right-0 left-0 border border-white h-1/4 py-2 bg-gray-300 hover:bg-gray-500">
+                        hello
+                    </div>
+                </div>
+                <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
+                    <!--Top Container-->
+                    <img src="images/chemistrysample1.jpeg" alt="book image" class="m-auto">
+                    <!--Bottom Container-->
+                    <div
+                        class="absolute bottom-0 right-0 left-0 border border-white h-1/4 py-2 bg-gray-300 hover:bg-gray-500">
+                        hello
+                    </div>
+                </div>
+                <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
+                    <!--Top Container-->
+                    <img src="images/chemistrysample1.jpeg" alt="book image" class="m-auto">
+                    <!--Bottom Container-->
+                    <div
+                        class="absolute bottom-0 right-0 left-0 border border-white h-1/4 py-2 bg-gray-300 hover:bg-gray-500">
+                        hello
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

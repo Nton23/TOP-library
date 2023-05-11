@@ -11,18 +11,20 @@
 
 <body>
     <!--Global Container-->
-    <main class="bg-green-100 flex justify-center min-h-screen p-10">
+    <main class="bg-green-100 flex justify-center min-h-screen border border-red-600">
         <!--Card Container-->
-        <div class="bg-white space-y-10 border border-gray-100 m-6 p-20 shadow-2xl rounded-lg w-full">
+        <div class="bg-white space-y-10 border border-red-600 p-5 my-5 shadow-2xl rounded-lg w-3/4">
             <!--Title Container-->
-            <div class="flex justify-center items-center border-2 border-red-200">
-                <h1 class="text-5xl"><span class="text-7xl font-bold">#</span>Welcome to TOP library</h1>
+            <div class="flex justify-center">
+                <h1 class="text-xl w-2/5 font-bold text-center"><span class="text-2xl font-bold">#</span>Welcome to
+                    TOP
+                    library</h1>
             </div>
             <!--Search and Add container-->
-            <div class="flex justify-between items-center border-2 border-red-200">
+            <div class="flex flex-col items-center justify-center space-y-10">
                 <!--Search input container-->
                 <div class="flex justify-between">
-                    <input type="text" class="border-none placeholder:font-thin focus:outline-none"
+                    <input type="text" class="border border-gray-500 placeholder:font-thin focus:outline-none"
                         placeholder="Search">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-gray-300 duration-200 hover:scale-110"
@@ -36,12 +38,12 @@
                 </div>
                 <!--Add button-->
                 <button
-                    class="py-2 px-10 text-lg font-normal text-white bg-black border border-black rounded-md shadow-2xl duration-200 hover:bg-green-100 hover:text-black">
+                    class="py-2 px-20 text-lg font-normal text-white bg-black border border-black rounded-md shadow-2xl duration-200 hover:bg-green-100 hover:text-black">
                     Add
                 </button>
             </div>
             <!--Books display container-->
-            <div class="bg-green-400 border-2 border-red-900 rounded-xl shadow-lg group flex justify-around">
+            <div class="bg-green-400 rounded-xl shadow-lg group flex flex-col items-center space-y-10 py-10">
                 <!--Book container-->
                 <div class="relative w-48 h-64 border-2 border-red-500 bg-white">
                     <!--Top Container-->
