@@ -5,6 +5,16 @@ const formContainer = document.getElementById('form-container');
 const blurBackground = document.getElementById('blur-background');
 const bookExitBtn = document.getElementById('book-exit-btn');
 const book = document.getElementById('book');
+const inputTitle = document.getElementById('input-title');
+const inputAuthor = document.getElementById('input-author');
+const inputPage = document.getElementById('input-pages');
+const confirmRead = document.getElementById('confirmation-read');
+const submitBtn = document.getElementById('submit-btn');
+const bookTitle = document.getElementById('book-title');
+const bookAuthor = document.getElementById('book-author');
+const bookPages = document.getElementById('book-pages');
+const bookRead = document.getElementById('book-read');
+
 
 //function to display the book form for filling out the book information
 addBtn.addEventListener('click', addClick);
@@ -22,4 +32,15 @@ exitBtn.addEventListener('click', () => {
 //book remove function
 bookExitBtn.addEventListener('click', () => {
     book.remove();
+})
+
+//function for submit button in the book form
+submitBtn.addEventListener('click', () => {
+    bookTitle.innerText = inputTitle.value;
+    bookAuthor.innerText = inputAuthor.value;
+    bookPages.innerText = inputPage.value;
+    formContainer.style.display = "none";
+    blurBackground.style.display = "none";
+    const isChecked = confirmRead.checked;
+    bookRead.checked = isChecked;
 })
