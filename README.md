@@ -3,4 +3,6 @@
             -Add function to exit button on the book itself.
             -Add function to checkbox on the Add form
             -Add function to display title/author/pages/checkbox?checked
-            
+-05/22/23 : -Add book constructor
+            -Add library array
+            -Edit the other functions
