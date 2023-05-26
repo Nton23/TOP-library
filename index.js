@@ -4,16 +4,12 @@ const addBtn = document.getElementById('add-book-btn');
 const formContainer = document.getElementById('form-container');
 const blurBackground = document.getElementById('blur-background');
 const bookExitBtn = document.getElementById('book-exit-btn');
-const book = document.getElementById('book');
 const inputTitle = document.getElementById('input-title');
 const inputAuthor = document.getElementById('input-author');
 const inputPage = document.getElementById('input-pages');
 const confirmRead = document.getElementById('confirmation-read');
 const submitBtn = document.getElementById('submit-btn');
-const bookTitle = document.getElementById('book-title');
-const bookAuthor = document.getElementById('book-author');
-const bookPages = document.getElementById('book-pages');
-const bookRead = document.getElementById('book-read');
+const bookDisplayContainer = document.getElementById('book-display-container');
 
 let titleValue;
 let authorValue;
@@ -48,45 +44,80 @@ function isRead(confirmRead) {
     console.log(isChecked);
 };
 
-//book structure
 function bookStructure() {
-    //Book container
+    // Book container
     const containerDiv = document.createElement('div');
     containerDiv.className = 'relative w-48 h-64 shadow-2xl group';
     containerDiv.id = 'book';
 
-    //Top container
+    // Top container
     const topContainer = document.createElement('div');
     topContainer.className = 'p-4 space-y-6';
-    //title
+
+    // Title
     const titleContainer = document.createElement('div');
     titleContainer.className = 'space-x-3';
     const titleSpan = document.createElement('span');
     titleSpan.innerHTML = 'Title';
-    const titleSpanValue= document.createElement('span');
+    const titleSpanValue = document.createElement('span');
     titleSpanValue.id = 'book-title';
-    //author
+
+    // Author
     const authorContainer = document.createElement('div');
     authorContainer.className = 'space-x-3';
     const authorSpan = document.createElement('span');
     authorSpan.innerHTML = 'Author';
-    const authorSpanValue= document.createElement('span');
+    const authorSpanValue = document.createElement('span');
     authorSpanValue.id = 'book-author';
-    //pages
+
+    // Pages
     const pageContainer = document.createElement('div');
     pageContainer.className = 'space-x-3';
     const pageSpan = document.createElement('span');
     pageSpan.innerHTML = 'Pages';
-    const pageSpanValue= document.createElement('span');
+    const pageSpanValue = document.createElement('span');
     pageSpanValue.id = 'book-pages';
-    
-    //Bottom Container
+
+    // Bottom Container
+    const bottomContainer = document.createElement('div');
+    bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
+    const bookRead = document.createElement('input');
+    bookRead.id = 'book-read';
+    bookRead.setAttribute('type', 'checkbox');
+    const bookReadLabel = document.createElement('label');
+    bookReadLabel.setAttribute('for', 'book-read');
+    bookReadLabel.innerHTML = 'Have you read it?';
+
+    // Append elements to the structure
+    titleContainer.appendChild(titleSpan);
+    titleContainer.appendChild(titleSpanValue);
+
+    authorContainer.appendChild(authorSpan);
+    authorContainer.appendChild(authorSpanValue);
+
+    pageContainer.appendChild(pageSpan);
+    pageContainer.appendChild(pageSpanValue);
+
+    bottomContainer.appendChild(bookRead);
+    bottomContainer.appendChild(bookReadLabel);
+
+    topContainer.appendChild(titleContainer);
+    topContainer.appendChild(authorContainer);
+    topContainer.appendChild(pageContainer);
+
+    containerDiv.appendChild(topContainer);
+    containerDiv.appendChild(bottomContainer);
+
+    // Append book structure to the parent element
+    const bookDisplayContainer = document.getElementById('book-display-container');
+    bookDisplayContainer.appendChild(containerDiv);
+    console.log('hello')
 }
+
 
 //function to display the book form for filling out the book information
 addBtn.addEventListener('click', addClick);
 function addClick() {
-    bookStructure();
     formContainer.style.display = "block"; 
     blurBackground.style.display = "block";
 };
@@ -98,11 +129,11 @@ exitBtn.addEventListener('click', () => {
 });
 
 //book remove function
-bookExitBtn.addEventListener('click', () => {
-    book.remove();
-});
+//bookExitBtn.addEventListener('click', () => {
+   // book.remove();
+//});
 
 //function for submit button in the book form
 submitBtn.addEventListener('click', () => {
-    console.log(bookNumber());
+    bookStructure();
 });

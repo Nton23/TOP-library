@@ -6,3 +6,4 @@
 -05/22/23 : -Add book constructor
             -Add library array
             -Edit the other functions
+-05/23/23 : -Add a function for book structure

@@ -47,43 +47,9 @@
                 </button>
             </div>
             <!--Books display container-->
-            <div
+            <div id="book-display-container"
                 class="bg-green-400 rounded-xl shadow-lg flex flex-col items-center space-y-10 py-10 md:flex-row md:space-y-0 md:justify-around">
                 <!--Book container-->
-                <div class="relative w-48 h-64 shadow-2xl group" id="book">
-                    <!--Top Container-->
-                    <div class="p-4 space-y-6">
-                        <div class="space-x-3">
-                            <span>Title:</span>
-                            <span id="book-title"></span>
-                        </div>
-                        <div class="space-x-3">
-                            <span>Author:</span>
-                            <span id="book-author"></span>
-                        </div>
-                        <div class="space-x-3">
-                            <span>Pages:</span>
-                            <span id="book-pages"></span>
-                        </div>
-                    </div>
-                    <!--Bottom Container-->
-                    <div
-                        class="absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4">
-                        <input type="checkbox" id="book-read">
-                        <label for="book-read">Have you read it?</label>
-                    </div>
-                    <!--Exit button-->
-                    <div class="absolute top-0 -right-4 flex items-center justify-center w-5 h-5 bg-gray-200 rounded-full hover:cursor-pointer opacity-0 group-hover:opacity-70"
-                        id="book-exit-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black group-hover:text-gray-600"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                    </div>
-                </div>
             </div>
         </div>
         <!--Form section-->
