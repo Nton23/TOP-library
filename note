@@ -37,3 +37,76 @@
     </div>
 </div>
 </div>
+
+
+
+function bookStructure() {
+// Book container
+const containerDiv = document.createElement('div');
+containerDiv.className = 'relative w-48 h-64 shadow-2xl group';
+containerDiv.id = 'book';
+
+// Top container
+const topContainer = document.createElement('div');
+topContainer.className = 'p-4 space-y-6';
+
+// Title
+const titleContainer = document.createElement('div');
+titleContainer.className = 'space-x-3';
+const titleSpan = document.createElement('span');
+titleSpan.innerHTML = 'Title';
+const titleSpanValue = document.createElement('span');
+titleSpanValue.id = 'book-title';
+
+// Author
+const authorContainer = document.createElement('div');
+authorContainer.className = 'space-x-3';
+const authorSpan = document.createElement('span');
+authorSpan.innerHTML = 'Author';
+const authorSpanValue = document.createElement('span');
+authorSpanValue.id = 'book-author';
+
+// Pages
+const pageContainer = document.createElement('div');
+pageContainer.className = 'space-x-3';
+const pageSpan = document.createElement('span');
+pageSpan.innerHTML = 'Pages';
+const pageSpanValue = document.createElement('span');
+pageSpanValue.id = 'book-pages';
+
+// Bottom Container
+const bottomContainer = document.createElement('div');
+bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0
+bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
+const bookRead = document.createElement('input');
+bookRead.id = 'book-read';
+bookRead.setAttribute('type', 'checkbox');
+const bookReadLabel = document.createElement('label');
+bookReadLabel.setAttribute('for', 'book-read');
+bookReadLabel.innerHTML = 'Have you read it?';
+
+// Append elements to the structure
+titleContainer.appendChild(titleSpan);
+titleContainer.appendChild(titleSpanValue);
+
+authorContainer.appendChild(authorSpan);
+authorContainer.appendChild(authorSpanValue);
+
+pageContainer.appendChild(pageSpan);
+pageContainer.appendChild(pageSpanValue);
+
+bottomContainer.appendChild(bookRead);
+bottomContainer.appendChild(bookReadLabel);
+
+topContainer.appendChild(titleContainer);
+topContainer.appendChild(authorContainer);
+topContainer.appendChild(pageContainer);
+
+containerDiv.appendChild(topContainer);
+containerDiv.appendChild(bottomContainer);
+
+// Append book structure to the parent element
+const bookDisplayContainer = document.getElementById('book-display-container');
+bookDisplayContainer.appendChild(containerDiv);
+console.log('hello')
+}
