@@ -10,6 +10,7 @@ const inputPage = document.getElementById('input-pages');
 const confirmRead = document.getElementById('confirmation-read');
 const submitBtn = document.getElementById('submit-btn');
 const bookDisplayContainer = document.getElementById('book-display-container');
+const bookRead = document.createElement('input');
 
 let titleValue;
 let authorValue;
@@ -39,8 +40,13 @@ function addBookToLibrary() {
 };
 
 //function to see if the book is read or not
-function isRead(confirmRead) {
+function isRead() {
     let isChecked = confirmRead.checked;
+    if (isChecked) {
+        bookRead.checked = true;
+    } else {
+        bookRead.checked = false;
+    }
     console.log(isChecked);
 };
 
@@ -81,7 +87,6 @@ function bookStructure() {
     // Bottom Container
     const bottomContainer = document.createElement('div');
     bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
-    const bookRead = document.createElement('input');
     bookRead.id = 'book-read';
     bookRead.setAttribute('type', 'checkbox');
     const bookReadLabel = document.createElement('label');
@@ -136,4 +141,5 @@ exitBtn.addEventListener('click', () => {
 //function for submit button in the book form
 submitBtn.addEventListener('click', () => {
     bookStructure();
+    isRead();
 });
