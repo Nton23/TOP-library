@@ -1,7 +1,7 @@
 <div
     class="bg-green-400 rounded-xl shadow-lg flex flex-col items-center space-y-10 py-10 md:flex-row md:space-y-0 md:justify-around">
     <!--Book container-->
-    <div class="relative w-48 h-64 shadow-2xl group hidden" id="book">
+    <div class="relative w-60 h-64 shadow-2xl group hidden" id="book">
         <!--Top Container-->
         <div class="p-4 space-y-6">
             <div class="space-x-3">
