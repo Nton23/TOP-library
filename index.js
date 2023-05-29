@@ -58,7 +58,7 @@ function bookStructure() {
     const titleContainer = document.createElement('div');
     titleContainer.className = 'space-x-3';
     const titleSpan = document.createElement('span');
-    titleSpan.innerHTML = 'Title';
+    titleSpan.innerHTML = 'Title:';
     const titleSpanValue = document.createElement('span');
     titleSpanValue.id = 'book-title';
 
@@ -66,7 +66,7 @@ function bookStructure() {
     const authorContainer = document.createElement('div');
     authorContainer.className = 'space-x-3';
     const authorSpan = document.createElement('span');
-    authorSpan.innerHTML = 'Author';
+    authorSpan.innerHTML = 'Author:';
     const authorSpanValue = document.createElement('span');
     authorSpanValue.id = 'book-author';
 
@@ -74,7 +74,7 @@ function bookStructure() {
     const pageContainer = document.createElement('div');
     pageContainer.className = 'space-x-3';
     const pageSpan = document.createElement('span');
-    pageSpan.innerHTML = 'Pages';
+    pageSpan.innerHTML = 'Pages:';
     const pageSpanValue = document.createElement('span');
     pageSpanValue.id = 'book-pages';
 
