@@ -48,30 +48,30 @@
             </div>
             <!--Books display container-->
             <div id="book-display-container"
-                class="bg-green-400 rounded-xl shadow-lg flex flex-col items-center space-y-10 py-10 md:flex-row md:space-y-0 md:justify-around">
-                <!--Book container-->
+                class="bg-green-400 rounded-xl py-10 space-y-10 md:space-y-5 flex flex-col justify-center">
+                <!-- #th row -->
             </div>
-        </div>
-        <!--Form section-->
-        <section id="form-container"
-            class="absolute border-2 border-red-600 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 hidden">
-            <div class="bg-gray-200 text-center flex flex-col space-y-8 p-4 items-center">
-                <h3 class="text-xl font-bold">Add new book</h3>
-                <input type="text" class="rounded-lg focus:outline-none px-4" id="input-title" placeholder="Title">
-                <input type="text" class="rounded-lg focus:outline-none px-4" id="input-author" placeholder="Author">
-                <input type="text" class="rounded-lg focus:outline-none px-4" id="input-pages" placeholder="Pages">
-                <div class="flex justify-center items-center space-x-4">
-                    <label for="confirmation-read" class="text-sm font-bold">Have you read it?</label>
-                    <input type="checkbox" id="confirmation-read">
+            <!--Form section-->
+            <section id="form-container"
+                class="absolute border-2 border-red-600 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 hidden">
+                <div class="bg-gray-200 text-center flex flex-col space-y-8 p-4 items-center">
+                    <h3 class="text-xl font-bold">Add new book</h3>
+                    <input type="text" class="rounded-lg focus:outline-none px-4" id="input-title" placeholder="Title">
+                    <input type="text" class="rounded-lg focus:outline-none px-4" id="input-author"
+                        placeholder="Author">
+                    <input type="text" class="rounded-lg focus:outline-none px-4" id="input-pages" placeholder="Pages">
+                    <div class="flex justify-center items-center space-x-4">
+                        <label for="confirmation-read" class="text-sm font-bold">Have you read it?</label>
+                        <input type="checkbox" id="confirmation-read">
+                    </div>
+                    <button class="border border-black bg-black text-white font-bold w-28 rounded-md"
+                        id="submit-btn">Submit</button>
+                    <button class="border border-red-800 bg-red-800 text-white font-bold w-28 rounded-md"
+                        id="exit-btn">Exit</button>
                 </div>
-                <button class="border border-black bg-black text-white font-bold w-28 rounded-md"
-                    id="submit-btn">Submit</button>
-                <button class="border border-red-800 bg-red-800 text-white font-bold w-28 rounded-md"
-                    id="exit-btn">Exit</button>
-            </div>
-        </section>
-        <!-- blur background -->
-        <div class="fixed top-0 left-0 w-full h-full backdrop-blur-sm z-40 hidden" id="blur-background"></div>
+            </section>
+            <!-- blur background -->
+            <div class="fixed top-0 left-0 w-full h-full backdrop-blur-sm z-40 hidden" id="blur-background"></div>
     </main>
     <!--Script-->
     <script src="index.js"></script>
