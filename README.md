@@ -7,3 +7,4 @@
             -Add library array
             -Edit the other functions
 -05/23/23 : -Add a function for book structure
+-05/29/23 : -Edit Functions
