@@ -44,6 +44,8 @@ submitBtn.addEventListener('click', () => {
     addBookToLibrary(title, author, page, read);
 })
 
+//function for creating book container structure
+
 
 //Constructor function
 function Book(title, author, page, read) {
