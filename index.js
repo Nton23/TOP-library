@@ -37,16 +37,17 @@ exitBtn.addEventListener('click', () => {
 submitBtn.addEventListener('click', () => {
     formContainer.style.display = "none";
     blurBackground.style.display = "none";
-    const title = inputTitle.value;
-    const author = inputAuthor.value;
-    const page = inputPage.value;
-    const read = isRead();
+    let title = inputTitle.value;
+    let author = inputAuthor.value;
+    let page = inputPage.value;
+    let read = isRead();
     addBookToLibrary(title, author, page, read);
     bookBodyStructure(title, author, page, read);
 });
 
 //function for creating book container structure
 function bookBodyStructure(title, author, page, read) {
+
     // Create the main container
     const bookContainer = document.createElement('div');
     bookContainer.classList.add('relative', 'w-52', 'h-64', 'shadow-2xl', 'group');
@@ -54,37 +55,40 @@ function bookBodyStructure(title, author, page, read) {
 
     // Create the top container
     const topContainer = document.createElement('div');
-    topContainer.classList.add('p-4', 'space-y-6');
+    topContainer.classList.add('p-4', 'space-y-8');
 
     // Create the title section
     const titleSection = document.createElement('div');
-    titleSection.classList.add('space-x-3');
+    titleSection.classList.add('space-x-2');
     const titleLabel = document.createElement('span');
-    titleLabel.textContent = 'Title:';
+    titleLabel.textContent = 'Title: ';
     const titleSpan = document.createElement('span');
     titleSpan.id = 'book-title';
+    titleSpan.innerText = title;
     titleSection.appendChild(titleLabel);
     titleSection.appendChild(titleSpan);
     topContainer.appendChild(titleSection);
 
     // Create the author section
     const authorSection = document.createElement('div');
-    authorSection.classList.add('space-x-3');
+    authorSection.classList.add('space-x-2');
     const authorLabel = document.createElement('span');
-    authorLabel.textContent = 'Author:';
+    authorLabel.textContent = 'Author: ';
     const authorSpan = document.createElement('span');
     authorSpan.id = 'book-author';
+    authorSpan.innerText = author;
     authorSection.appendChild(authorLabel);
     authorSection.appendChild(authorSpan);
     topContainer.appendChild(authorSection);
 
     // Create the pages section
     const pagesSection = document.createElement('div');
-    pagesSection.classList.add('space-x-3');
+    pagesSection.classList.add('space-x-2');
     const pagesLabel = document.createElement('span');
-    pagesLabel.textContent = 'Pages:';
+    pagesLabel.textContent = 'Pages: ';
     const pagesSpan = document.createElement('span');
     pagesSpan.id = 'book-pages';
+    pagesSpan.innerText = page;
     pagesSection.appendChild(pagesLabel);
     pagesSection.appendChild(pagesSpan);
     topContainer.appendChild(pagesSection);
@@ -94,32 +98,32 @@ function bookBodyStructure(title, author, page, read) {
     // Create the bottom container
     const bottomContainer = document.createElement('div');
     bottomContainer.classList.add(
-    'absolute',
-    'bottom-0',
-    'right-0',
-    'left-0',
-    'h-1/4',
-    'p-2',
-    'text-white',
-    'duration-500',
-    'bg-black',
-    'opacity-0',
-    'bg-opacity-40',
-    'hover:opacity-100',
-    'flex',
-    'justify-center',
-    'items-center',
-    'space-x-4'
+        'absolute',
+        'bottom-0',
+        'right-0',
+        'left-0',
+        'h-1/4',
+        'p-2',
+        'text-white',
+        'duration-500',
+        'bg-black',
+        'opacity-0',
+        'bg-opacity-40',
+        'hover:opacity-100',
+        'flex',
+        'justify-center',
+        'items-center',
+        'space-x-4'
     );
 
     // Create the "Have you read it?" checkbox
-    const checkboxInput = document.createElement('input');
-    checkboxInput.type = 'checkbox';
-    checkboxInput.id = 'book-read';
-
     const checkboxLabel = document.createElement('label');
     checkboxLabel.htmlFor = 'book-read';
     checkboxLabel.textContent = 'Have you read it?';
+
+    const checkboxInput = document.createElement('input');
+    checkboxInput.type = 'checkbox';
+    checkboxInput.id = 'book-read';
 
     bottomContainer.appendChild(checkboxInput);
     bottomContainer.appendChild(checkboxLabel);
@@ -128,19 +132,19 @@ function bookBodyStructure(title, author, page, read) {
     // Create the exit button
     const exitButton = document.createElement('div');
     exitButton.classList.add(
-    'absolute',
-    'top-0',
-    'right-0',
-    'flex',
-    'items-center',
-    'justify-center',
-    'w-5',
-    'h-5',
-    'bg-gray-200',
-    'rounded-full',
-    'hover:cursor-pointer',
-    'opacity-0',
-    'group-hover:opacity-70'
+        'absolute',
+        'top-0',
+        'right-0',
+        'flex',
+        'items-center',
+        'justify-center',
+        'w-5',
+        'h-5',
+        'bg-gray-200',
+        'rounded-full',
+        'hover:cursor-pointer',
+        'opacity-0',
+        'group-hover:opacity-70'
     );
     exitButton.id = 'book-exit-btn';
 
@@ -177,9 +181,13 @@ function bookBodyStructure(title, author, page, read) {
     exitButton.appendChild(svg);
     bookContainer.appendChild(exitButton);
 
+    // Create the container for the main container
+    const wrapBookContainer = document.getElementById('wrap-book-container');
+    wrapBookContainer.appendChild(bookContainer);
+
     //Create a variable bookDisplayContainer and appened all of the above children divs
-    const bookDisplayContainer = document.getElementById('book-display-container');
-    bookDisplayContainer.appendChild(bookContainer);
+    //const bookDisplayContainer = document.getElementById('book-display-container');
+    bookDisplayContainer.appendChild(wrapBookContainer);
 };
 
 //Constructor function
