@@ -13,7 +13,7 @@ const submitBtn = document.getElementById('submit-btn');
 //array to store book
 let myLibrary = [];
 
-let countLibrary;
+let countBook;
 let isChecked = false;
 
 //function to display an add form block
@@ -47,82 +47,139 @@ submitBtn.addEventListener('click', () => {
 
 //function for creating book container structure
 function bookBodyStructure(title, author, page, read) {
-
-    //book wrap container
-    const bookWrapContainer = document.createElement('div');
-    bookWrapContainer.className = 'border border-red-600 space-y-10 flex flex-col items-center md:flex-row md:items-center md:justify-evenly md:space-y-0 md:space-x-5';
-
-    //book container
+    // Create the main container
     const bookContainer = document.createElement('div');
-    bookContainer.className = 'relative w-52 h-64 shadow-2xl group';
+    bookContainer.classList.add('relative', 'w-52', 'h-64', 'shadow-2xl', 'group');
+    bookContainer.id = 'book';
 
-    //top container
+    // Create the top container
     const topContainer = document.createElement('div');
-    topContainer.className = 'p-4 space-y-6';
+    topContainer.classList.add('p-4', 'space-y-6');
 
-    //title container
-    const titleContainer = document.createElement('div');
-    titleContainer.className = 'space-x-3';
-
-    //spans inside title container
+    // Create the title section
+    const titleSection = document.createElement('div');
+    titleSection.classList.add('space-x-3');
+    const titleLabel = document.createElement('span');
+    titleLabel.textContent = 'Title:';
     const titleSpan = document.createElement('span');
-    titleSpan.innerHTML = 'Title: ';
-    let bookTitle = document.createElement('span');
-    bookTitle.innerHTML = title;
+    titleSpan.id = 'book-title';
+    titleSection.appendChild(titleLabel);
+    titleSection.appendChild(titleSpan);
+    topContainer.appendChild(titleSection);
 
-    //author container
-    const authorContainer = document.createElement('div');
-    authorContainer.className = 'space-x-3';
-
-    //spans inside author container
+    // Create the author section
+    const authorSection = document.createElement('div');
+    authorSection.classList.add('space-x-3');
+    const authorLabel = document.createElement('span');
+    authorLabel.textContent = 'Author:';
     const authorSpan = document.createElement('span');
-    authorSpan.innerHTML = 'Author: ';
-    let bookAuthor = document.createElement('span');
-    bookAuthor.innerHTML = author;
+    authorSpan.id = 'book-author';
+    authorSection.appendChild(authorLabel);
+    authorSection.appendChild(authorSpan);
+    topContainer.appendChild(authorSection);
 
-    //page container
-    const pageContainer = document.createElement('div');
-    pageContainer.className = 'space-x-3';
+    // Create the pages section
+    const pagesSection = document.createElement('div');
+    pagesSection.classList.add('space-x-3');
+    const pagesLabel = document.createElement('span');
+    pagesLabel.textContent = 'Pages:';
+    const pagesSpan = document.createElement('span');
+    pagesSpan.id = 'book-pages';
+    pagesSection.appendChild(pagesLabel);
+    pagesSection.appendChild(pagesSpan);
+    topContainer.appendChild(pagesSection);
 
-    //spans inside page container
-    const pageSpan = document.createElement('span');
-    pageSpan.innerHTML = 'Pages: ';
-    let bookPages = document.createElement('span');
-    bookPages.innerHTML = page;
-
-    //bottom container
-    const bottomContainer = document.createElement('div');
-    bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
-
-    //input checkbox
-    let bookRead = document.createElement('input');
-    bookRead.setAttribute('type', 'checkbox');
-    //bookRead = read;
-    const labelBookRead = document.createElement('label');
-    labelBookRead.setAttribute('for', 'book-read');
-    labelBookRead.innerHTML = 'Have you read it?'
-    
-    //appendment from bottom to top
-    bottomContainer.appendChild(bookRead);
-    bottomContainer.appendChild(labelBookRead);
-    topContainer.appendChild(titleContainer);
-    titleContainer.appendChild(titleSpan);
-    titleContainer.appendChild(bookTitle);
-    topContainer.appendChild(authorContainer);
-    authorContainer.appendChild(authorSpan);
-    authorContainer.appendChild(bookAuthor);
-    topContainer.appendChild(pageContainer);
-    pageContainer.appendChild(pageSpan);
-    pageContainer.appendChild(bookPages);
     bookContainer.appendChild(topContainer);
+
+    // Create the bottom container
+    const bottomContainer = document.createElement('div');
+    bottomContainer.classList.add(
+    'absolute',
+    'bottom-0',
+    'right-0',
+    'left-0',
+    'h-1/4',
+    'p-2',
+    'text-white',
+    'duration-500',
+    'bg-black',
+    'opacity-0',
+    'bg-opacity-40',
+    'hover:opacity-100',
+    'flex',
+    'justify-center',
+    'items-center',
+    'space-x-4'
+    );
+
+    // Create the "Have you read it?" checkbox
+    const checkboxInput = document.createElement('input');
+    checkboxInput.type = 'checkbox';
+    checkboxInput.id = 'book-read';
+
+    const checkboxLabel = document.createElement('label');
+    checkboxLabel.htmlFor = 'book-read';
+    checkboxLabel.textContent = 'Have you read it?';
+
+    bottomContainer.appendChild(checkboxInput);
+    bottomContainer.appendChild(checkboxLabel);
     bookContainer.appendChild(bottomContainer);
 
-    //bookWrapContainer append the other divs
-    bookWrapContainer.appendChild(bookContainer);
-    
+    // Create the exit button
+    const exitButton = document.createElement('div');
+    exitButton.classList.add(
+    'absolute',
+    'top-0',
+    'right-0',
+    'flex',
+    'items-center',
+    'justify-center',
+    'w-5',
+    'h-5',
+    'bg-gray-200',
+    'rounded-full',
+    'hover:cursor-pointer',
+    'opacity-0',
+    'group-hover:opacity-70'
+    );
+    exitButton.id = 'book-exit-btn';
+
+    // Create the SVG element
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svg.classList.add('w-6', 'h-6', 'text-black', 'group-hover:text-gray-600');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('stroke-width', '1.5');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+
+    // Create the first line element
+    const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line1.setAttribute('x1', '18');
+    line1.setAttribute('y1', '6');
+    line1.setAttribute('x2', '6');
+    line1.setAttribute('y2', '18');
+
+    // Create the second line element
+    const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line2.setAttribute('x1', '6');
+    line2.setAttribute('y1', '6');
+    line2.setAttribute('x2', '18');
+    line2.setAttribute('y2', '18');
+
+    // Append the lines to the SVG element
+    svg.appendChild(line1);
+    svg.appendChild(line2);
+
+    // Append the svg to exitbutton container and append that exit button container in the book container
+    exitButton.appendChild(svg);
+    bookContainer.appendChild(exitButton);
+
     //Create a variable bookDisplayContainer and appened all of the above children divs
     const bookDisplayContainer = document.getElementById('book-display-container');
-    bookDisplayContainer.appendChild(bookWrapContainer);
+    bookDisplayContainer.appendChild(bookContainer);
 };
 
 //Constructor function
@@ -136,12 +193,17 @@ function Book(title, author, page, read) {
 //function to add book to array
 function addBookToLibrary (title, author, page, read) {
     const book = new Book(title, author, page, read);
+    let myLastBook;
     myLibrary.push(book);
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
+        myLastBook = myLibrary[myLibrary.length - 1]
     }
+    console.log(myLastBook);
     console.log(myLibrary.length);
+    countBook = myLibrary.length;
 };
+
+
 
 confirmRead.addEventListener('change', () => {
     isRead();
