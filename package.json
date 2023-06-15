@@ -6,10 +6,9 @@
   "scripts": {
     "build": "tailwindcss -i ./input.css -o ./css/style.css",
     "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch"
-
   },
   "keywords": [],
-  "author": "",
+  "author": "Tonny",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.3.2"
