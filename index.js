@@ -47,106 +47,99 @@ submitBtn.addEventListener('click', () => {
 
 //function for creating book container structure
 function bookBodyStructure(title, author, page, read) {
+
+    // Create the wrap book container
+    const wrapBookContainer = document.getElementById('wrap-book-container');
+
+    // Create the book container div
     const bookContainer = document.createElement('div');
-    bookContainer.classList.add(
-        'relative',
-        'w-1/5',
-        'border-2',
-        'border-gray-500',
-    )
-    
-    const topOutterContainer = document.createElement('div');
-    topOutterContainer.classList.add(
-        'p-4'
-        
-    )
+    bookContainer.className = 'relative w-52 h-64 shadow-2xl group';
+    bookContainer.id = 'book';
 
-    const topPart = document.createElement('div');
-    topPart.classList.add(
-        'space-y-8'
-    )
+    // Create the top container div
+    const topContainer = document.createElement('div');
+    topContainer.className = 'p-4 space-y-6';
 
-    const titleSection = document.createElement('div');
-    titleSection.classList.add();
-    const titleLabel = document.createElement('span');
-    titleLabel.textContent = 'Title: ';
+    // Create the title div
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'space-x-3';
+
+    // Create the title span
     const titleSpan = document.createElement('span');
-    titleSpan.id = 'book-title';
-    titleSpan.innerText = title;
-    titleSection.appendChild(titleLabel);
-    titleSection.appendChild(titleSpan);
-    topPart.appendChild(titleSection);
+    titleSpan.textContent = 'Title:';
 
-    // Create the author section
-    const authorSection = document.createElement('div');
-    authorSection.classList.add();
-    const authorLabel = document.createElement('span');
-    authorLabel.textContent = 'Author: ';
+    // Create the span to display the book title
+    const bookTitleSpan = document.createElement('span');
+    bookTitleSpan.id = 'book-title';
+
+    // Append the title span and book title span to the title div
+    titleDiv.appendChild(titleSpan);
+    titleDiv.appendChild(bookTitleSpan);
+
+    // Append the title div to the top container div
+    topContainer.appendChild(titleDiv);
+
+    // Create the author div
+    const authorDiv = document.createElement('div');
+    authorDiv.className = 'space-x-3';
+
+    // Create the author span
     const authorSpan = document.createElement('span');
-    authorSpan.id = 'book-author';
-    authorSpan.innerText = author;
-    authorSection.appendChild(authorLabel);
-    authorSection.appendChild(authorSpan);
-    topPart.appendChild(authorSection);
+    authorSpan.textContent = 'Author:';
 
-    // Create the pages section
-    const pagesSection = document.createElement('div');
-    pagesSection.classList.add();
-    const pagesLabel = document.createElement('span');
-    pagesLabel.textContent = 'Pages: ';
+    // Create the span to display the book author
+    const bookAuthorSpan = document.createElement('span');
+    bookAuthorSpan.id = 'book-author';
+
+    // Append the author span and book author span to the author div
+    authorDiv.appendChild(authorSpan);
+    authorDiv.appendChild(bookAuthorSpan);
+
+    // Append the author div to the top container div
+    topContainer.appendChild(authorDiv);
+
+    // Create the pages div
+    const pagesDiv = document.createElement('div');
+    pagesDiv.className = 'space-x-3';
+
+    // Create the pages span
     const pagesSpan = document.createElement('span');
-    pagesSpan.id = 'book-pages';
-    pagesSpan.innerText = page;
-    pagesSection.appendChild(pagesLabel);
-    pagesSection.appendChild(pagesSpan);
-    topPart.appendChild(pagesSection);
+    pagesSpan.textContent = 'Pages:';
 
-    const midBorder = document.createElement('div');
-    midBorder.classList.add(
-        'border-2',
-        'border-gray-500',
-        'w-full'
-    )
+    // Create the span to display the book pages
+    const bookPagesSpan = document.createElement('span');
+    bookPagesSpan.id = 'book-pages';
 
-    const bottomOutterContainer = document.createElement('div');
-    bottomOutterContainer.classList.add(
-        'p-4'
-    )
+    // Append the pages span and book pages span to the pages div
+    pagesDiv.appendChild(pagesSpan);
+    pagesDiv.appendChild(bookPagesSpan);
 
-    const bottomPart = document.createElement('div');
-    bottomPart.classList.add(
-        'flex',
-        'justify-center',
-        'space-x-4',
-    )
+    // Append the pages div to the top container div
+    topContainer.appendChild(pagesDiv);
 
-    const checkboxLabel = document.createElement('label');
-    checkboxLabel.htmlFor = 'book-read';
-    checkboxLabel.textContent = 'Have you read it?';
+    // Append the top container div to the book container div
+    bookContainer.appendChild(topContainer);
 
+    // Create the bottom container div
+    const bottomContainer = document.createElement('div');
+    bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
+
+    // Create the checkbox input
     const checkboxInput = document.createElement('input');
     checkboxInput.type = 'checkbox';
     checkboxInput.id = 'book-read';
 
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add(
-        'bg-black',
-        'w-10',
-        'h-5',
-    )
+    // Create the label for the checkbox
+    const checkboxLabel = document.createElement('label');
+    checkboxLabel.htmlFor = 'book-read';
+    checkboxLabel.textContent = 'Have you read it?';
 
-    bottomPart.appendChild(checkboxInput);
-    bottomPart.appendChild(checkboxLabel);
-    bottomOutterContainer.appendChild(deleteButton);
+    // Append the checkbox input and label to the bottom container div
+    bottomContainer.appendChild(checkboxInput);
+    bottomContainer.appendChild(checkboxLabel);
 
-
-
-    topOutterContainer.appendChild(topPart);
-    bottomOutterContainer.appendChild(bottomPart);
-    bookContainer.appendChild(topOutterContainer);
-    bookContainer.appendChild(midBorder);
-    bookContainer.appendChild(bottomOutterContainer);
-    const wrapBookContainer = document.getElementById('wrap-book-container');
+    // Append the bottom container div to the book container div
+    bookContainer.appendChild(bottomContainer);
     wrapBookContainer.appendChild(bookContainer);
 };
 
