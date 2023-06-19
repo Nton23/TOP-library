@@ -11,12 +11,14 @@ const submitBtn = document.getElementById('submit-btn');
 const form = document.getElementById('form-container');
 //const bookExitBtn = document.getElementById('book-exit-btn');
 const exitButtonDiv = document.createElement('div');
+const bookContainer = document.createElement('div');
+
 
 
 //array to store book
 let myLibrary = [];
 
-let countBook;
+let bookIndex;
 
 //function to display an add form block
 addBtn.addEventListener('click', () => {
@@ -79,7 +81,6 @@ function bookBodyStructure(title, author, page, read) {
     const wrapBookContainer = document.getElementById('wrap-book-container');
 
     // Create the book container div
-    const bookContainer = document.createElement('div');
     bookContainer.className = 'relative w-52 h-64 shadow-2xl group justify-self-center md:justify-start';
     bookContainer.id = 'book';
 
@@ -248,9 +249,8 @@ function bookBodyStructure(title, author, page, read) {
 
 
 //exit button for the book
-exitButtonDiv.addEventListener('click', (e) => {
-    const event = e.target;
-    console.log(event);
+exitButtonDiv.addEventListener('click', () => {
+    bookContainer.remove();
 })
 
 //Constructor function
@@ -261,17 +261,14 @@ function Book(title, author, page, read) {
     this.read = read;
 };
 
+
 //function to add book to array
 function addBookToLibrary (title, author, page, read) {
-    const book = new Book(title, author, page, read);
-    let myLastBook;
+    let book = new Book(title, author, page, read);
     myLibrary.push(book);
-    for (let i = 0; i < myLibrary.length; i++) {
-        myLastBook = myLibrary[myLibrary.length - 1]
-    }
-    console.log(myLastBook);
-    console.log(myLibrary.length);
-    countBook = myLibrary.length;
+    bookIndex = myLibrary.length - 1;
+    console.log(bookIndex);
+    console.log(myLibrary[bookIndex]);
 };
 
 
