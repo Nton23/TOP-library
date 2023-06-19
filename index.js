@@ -10,12 +10,13 @@ let confirmRead = document.getElementById('confirmation-read');
 const submitBtn = document.getElementById('submit-btn');
 const form = document.getElementById('form-container');
 //const bookExitBtn = document.getElementById('book-exit-btn');
+const exitButtonDiv = document.createElement('div');
+
 
 //array to store book
 let myLibrary = [];
 
 let countBook;
-let isChecked = false;
 
 //function to display an add form block
 addBtn.addEventListener('click', () => {
@@ -181,9 +182,10 @@ function bookBodyStructure(title, author, page, read) {
     bottomContainer.className = 'absolute bottom-0 right-0 left-0 h-1/4 p-2 text-white duration-500 bg-black opacity-0 bg-opacity-40 hover:opacity-100 flex justify-center items-center space-x-4';
 
     // Create the checkbox input
-    const checkboxInput = document.createElement('input');
+    let checkboxInput = document.createElement('input');
     checkboxInput.type = 'checkbox';
     checkboxInput.id = 'book-read';
+    checkboxInput.checked = read;
 
     // Create the label for the checkbox
     const checkboxLabel = document.createElement('label');
@@ -230,7 +232,6 @@ function bookBodyStructure(title, author, page, read) {
     svgElement.appendChild(line2);
 
     // Create the exit button div
-    const exitButtonDiv = document.createElement('div');
     exitButtonDiv.className = 'absolute -top-3 -right-3 w-[20px] h-[20px] bg-gray-200 rounded-full hover:cursor-pointer opacity-0 group-hover:opacity-70';
     exitButtonDiv.id = 'book-exit-btn';
 
@@ -245,6 +246,12 @@ function bookBodyStructure(title, author, page, read) {
     wrapBookContainer.appendChild(bookContainer);
 };
 
+
+//exit button for the book
+exitButtonDiv.addEventListener('click', (e) => {
+    const event = e.target;
+    console.log(event);
+})
 
 //Constructor function
 function Book(title, author, page, read) {
