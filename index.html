@@ -11,82 +11,49 @@
 
 <body>
     <!--Global Container-->
-    <main class="relative bg-green-100 flex justify-center min-h-screen" id="main">
-        <!--Card Container-->
-        <div class="bg-white space-y-10 p-5 my-5 shadow-2xl rounded-lg w-3/4 lg:p-10 lg:space-y-20 lg:w-[95%] lg:m-10">
-            <!--Title Container-->
-            <div class="flex justify-center">
-                <h1 class="text-xl w-2/5 font-bold text-center lg:text-5xl"><span
-                        class="text-xl font-bold lg:text-7xl">#</span>Welcome to
-                    T.O.P
-                    library</h1>
+    <main class="relative bg-green-100 flex justify-center h-screen p-10" id="main">
+        <!-- Center Container -->
+        <div class="container bg-white rounded-md shadow-lg p-10 space-y-10">
+            <!-- Title Container -->
+            <div class="text-center p-5">
+                <h1 class="text-3xl font-bold text-gray-500">Welcome to #Personal library</h1>
             </div>
-            <!--Search and Add container-->
-            <div
-                class="flex flex-col items-center justify-center space-y-10 lg:space-y-0 lg:flex-row lg:justify-between">
-                <!--Search input container-->
-                <div class="flex font-thin justify-center lg:w-[20%] lg:border-b lg:border-gray-400 lg:shadow-xl">
-                    <input type="text"
-                        class="border border-gray-500 w-3/4 p-2 placeholder:font-thin focus:outline-none lg:border-none lg:w-full"
-                        placeholder="Search">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-gray-300 duration-200 hover:scale-110"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <circle cx="10" cy="10" r="7" />
-                            <line x1="21" y1="21" x2="15" y2="15" />
-                        </svg>
-                    </button>
-                </div>
-                <!--Add button-->
-                <button
-                    class="py-2 px-20 text-lg font-normal text-white bg-black border border-black rounded-md shadow-2xl duration-200 hover:bg-green-100 hover:text-black"
-                    id="add-book-btn">
-                    Add
-                </button>
-            </div>
-            <!--Books display container-->
-            <div id="book-display-container" class="bg-green-400 rounded-2xl shadow-lg p-2">
-                <!-- Book Body Structure below HERE -->
-                <div id="wrap-book-container"
-                    class="rounded-lg w-full grid grid-cols-1 justify-center gap-10 p-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xxl:grid-cols-8">
+            <!-- Add Button -->
+            <div class="flex justify-center md:justify-end">
+                <div
+                    class="border border-green-400 flex justify-around items-center w-32 h-12 rounded-xl cursor-pointer hover:bg-green-500 hover:border-green-600 group md:w-24">
+                    <img src="images/icons8-add-100.png" alt="add" class="w-6 h-6 hidden md:block" />
+                    <button class="font-bold text-lg text-gray-500 group-hover:text-white">Book</button>
                 </div>
             </div>
-            <!--Form section-->
-            <form action="#" id="form-container"
-                class="absolute border border-gray-600 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 hidden">
-                <div class="bg-gray-200 text-center flex flex-col space-y-8 p-4 items-center">
-                    <h3 class="text-xl font-bold">Add new book</h3>
-                    <div class="flex flex-col items-start space-y-1">
-                        <input type="text" class="rounded-lg focus:outline-none px-4" id="input-title"
-                            placeholder="Title" required>
-                        <span class="text-xs text-red-600" id="error-title"></span>
+            <!-- Book Display -->
+            <div class="rounded-lg shadow-inner pt-10 grid grid-cols-1 gap-5 p-5 md:grid-cols-4">
+                <!-- Book Container -->
+                <div class="relative shadow-lg h-72 p-5 group hover:scale-105 hover:shadow-green-400">
+                    <!-- Top container -->
+                    <div>
+                        <!-- Top Content Container-->
+                        <div class="space-y-5 text-center md:text-start">
+                            <h5 class="text-gray-500">Title: <span>Ton</span></h5>
+                            <h5 class="text-gray-500">Author: <span>NGuyen</span></h5>
+                            <h5 class="text-gray-500">Page: <span>34</span></h5>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-start space-y-1">
-                        <input type="text" class="rounded-lg focus:outline-none px-4" id="input-author"
-                            placeholder="Author" required>
-                        <span class="hidden text-xs text-red-600"></span>
+                    <!-- Bottom container -->
+                    <div class="absolute hidden group-hover:block bg-slate-200 bottom-0 left-0 right-0 h-20 p-5">
+                        <!-- Bottom Content Container -->
+                        <div>
+                            <label for="confirmation-checkbox">Have you read it?</label>
+                            <input type="checkbox" id="confirmation-checkbox">
+                        </div>
                     </div>
-                    <div class="flex flex-col items-start space-y-1">
-                        <input type="number" class="rounded-lg focus:outline-none px-4" id="input-pages"
-                            placeholder="Pages" required>
-                        <span class="hidden text-xs text-red-600"></span>
-
+                    <!-- Exit Button -->
+                    <div class="absolute -top-3 -right-3 hidden group-hover:block">
+                        <img src="images/icons8-cancel-100.png" alt="exit-button" class="w-5 h-5" />
                     </div>
-                    <div class="flex justify-center items-center space-x-4">
-                        <label for="confirmation-read" class="text-sm font-bold">Have you read it?</label>
-                        <input type="checkbox" id="confirmation-read">
-                    </div>
-                    <button class="border border-black bg-black text-white font-bold w-28 rounded-md text-center"
-                        id="submit-btn">Submit</button>
-                    <button class="border border-red-800 bg-red-800 text-white font-bold w-28 rounded-md"
-                        id="exit-btn">Exit</button>
                 </div>
-            </form>
-            <!-- blur background -->
-            <div class="fixed top-0 left-0 w-full h-full backdrop-blur-sm z-40 hidden" id="blur-background"></div>
-
+            </div>
+        </div>
     </main>
     <!--Script-->
     <script src="index.js"></script>

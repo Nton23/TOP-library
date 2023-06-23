@@ -9,3 +9,6 @@
 -05/23/23 : -Add a function for book structure
 -05/29/23 : -Edit Functions
 -05/30/23 : -Edit the body structure / Will try to change flex box to grid for responsiveness 
+------------------------------------------------------------------
+6/22/23 : -Redo the whole thing
+6/23/23 : -Update the layout
