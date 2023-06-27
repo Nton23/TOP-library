@@ -11,23 +11,24 @@
 
 <body>
     <!--Global Container-->
-    <main class="relative bg-green-100 flex justify-center h-screen p-10" id="main">
+    <main class="relative bg-green-100 flex justify-center h-screen" id="main">
         <!-- Center Container -->
-        <div class="container bg-white rounded-md shadow-lg p-10 space-y-10">
+        <div class="container bg-white rounded-md shadow-lg p-10 space-y-10 m-10">
             <!-- Title Container -->
             <div class="text-center p-5">
                 <h1 class="text-3xl font-bold text-gray-500">Welcome to #Personal library</h1>
             </div>
             <!-- Add Button -->
             <div class="flex justify-center md:justify-end">
-                <div
-                    class="border border-green-400 flex justify-around items-center w-32 h-12 rounded-xl cursor-pointer hover:bg-green-500 hover:border-green-600 group md:w-24">
+                <div id="add-btn"
+                    class="border border-green-400 flex justify-around items-center w-32 h-12 rounded-xl cursor-pointer hover:bg-green-500 hover:border-green-600  focus:outline-green-500 active:bg-white group md:w-24">
                     <img src="images/icons8-add-100.png" alt="add" class="w-6 h-6 hidden md:block" />
-                    <button class="font-bold text-lg text-gray-500 group-hover:text-white">Book</button>
+                    <button
+                        class="font-bold text-lg text-gray-500 group-hover:text-white group-active:text-gray-500">Book</button>
                 </div>
             </div>
             <!-- Book Display -->
-            <div class="rounded-lg shadow-inner pt-10 grid grid-cols-1 gap-5 p-5 md:grid-cols-4">
+            <div id="book-display" class="rounded-lg shadow-inner pt-10 grid grid-cols-1 gap-5 p-5 md:grid-cols-4">
                 <!-- Book Container -->
                 <div class="relative shadow-lg h-72 p-5 group hover:scale-105 hover:shadow-green-400">
                     <!-- Top container -->
@@ -53,6 +54,33 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Form -->
+        <form id="form" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg z-50 hidden">
+            <!-- Form Container -->
+            <div class="w-80 h-96 border border-x-gray-200 p-5">
+                <!-- Top Content -->
+                <div class="flex flex-col space-y-2">
+                    <label for="form-title">Title:</label>
+                    <input type="text" id="form-title"
+                        class="border border-gray-400 rounded-lg focus:outline-green-300">
+                    <label for="form-author">Author:</label>
+                    <input type="text" id="form-author"
+                        class="border border-gray-400 rounded-lg focus:outline-green-300">
+                    <label for="form-page">Page:</label>
+                    <input type="text" id="form-page" class="border border-gray-400 rounded-lg focus:outline-green-300">
+                </div>
+                <!-- Bottom Content -->
+                <div class="flex flex-col items-center pt-10 space-y-5">
+                    <button
+                        class="border border-green-400 w-28 h-10 rounded-md text-green-400 font-bold hover:bg-green-500 hover:text-white active:outline-green-400 active:bg-white active:text-gray-500">Submit</button>
+                    <button
+                        class="border border-red-600 w-28 h-10 rounded-md text-red-600 font-bold hover:bg-red-500 hover:text-white active:outline-green-400 active:bg-white active:text-gray-500">Exit</button>
+                </div>
+            </div>
+        </form>
+        <!-- Blurry Background -->
+        <div id="blurry-bg" class="absolute bg-white h-screen w-full opacity-50 z-40 hidden">
         </div>
     </main>
     <!--Script-->
